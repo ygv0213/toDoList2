@@ -2,7 +2,10 @@ body{
     display: flex;
     justify-content: center;
 }
-
+ul{
+    min-height: 100px;
+    min-width: 170px;
+}
 #main{
     display: flex;
     flex-direction: column;
