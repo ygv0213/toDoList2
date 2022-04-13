@@ -36,12 +36,20 @@ body{
 
 .delete{
     text-align: center;
-    padding: 5px;
-    font-size: 70%;
-    font-weight: 800;
+    padding: 3px;
+    font-size: 50%;
+    font-weight: 900;
     background-color: rgb(247, 89, 89);
     border-radius: 5px;
     cursor: pointer;
     margin-left: 5px;
-    border: 1px solid black;
+}
+
+#addbtn{
+    background-color: rgb(11, 255, 6);
+    border-radius: 5px;
+    
+}
+#addtext{
+    
 }
