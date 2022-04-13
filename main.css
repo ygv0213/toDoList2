@@ -69,3 +69,21 @@ body{
     border: 1px solid rgb(2, 80, 2);
     border-radius: 15px;
 }
+.text{
+    padding-left: 15px;
+    border-left: 3px solid rgb(153, 149, 149);
+    border-radius: 2px;
+}
+
+li:hover:nth-child(1n) {
+    background-color: aqua;
+    outline: 0.5px solid grey;
+    border-radius: 10px;
+}
+
+li:hover:nth-child(1n) > .text{
+    border-left: 3px solid rgb(55, 55, 55);
+}
+li:hover:nth-child(1n) > #delete{
+    background-color: rgb(244, 17, 17);
+}

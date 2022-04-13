@@ -8,7 +8,7 @@ window.addEventListener("click", (e)=>{
             let span = document.createElement("span");
             let btn = document.createElement("button");
     
-            span.classList.add = "text";
+            span.className = "text";
             span.textContent = text;
             btn.id = "delete";
             btn.textContent = "Delete";
