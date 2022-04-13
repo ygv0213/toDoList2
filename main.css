@@ -21,7 +21,7 @@ body{
     flex-direction: column;
     justify-content: center;
     background-color: rgb(47, 236, 173);
-    border-radius: 15px 15px 0px 0px;
+    border-radius: 15px;
 }
 
 #list{
@@ -34,7 +34,7 @@ body{
     margin-right: 30px;
 }
 
-.delete{
+#delete{
     text-align: center;
     padding: 3px;
     font-size: 50%;
@@ -43,6 +43,7 @@ body{
     border-radius: 5px;
     cursor: pointer;
     margin-left: 5px;
+    float: right;
 }
 
 #addbtn{
@@ -51,5 +52,20 @@ body{
     
 }
 #addtext{
-    
+    height: 20px;
+    text-align: center;
+    background-color: aquamarine;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid rgb(2, 80, 2);
+    border-radius: 5px;
+}
+#search{
+    height: 20px;
+    text-align: center;
+    background-color: aquamarine;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid rgb(2, 80, 2);
+    border-radius: 15px;
 }
