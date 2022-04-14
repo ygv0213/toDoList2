@@ -5,7 +5,7 @@ window.addEventListener("click", (e)=>{
         const text = document.querySelector("#addtext").value;
 
         //clean the search bar before add a new item to list
-        search.value = "";
+        search.value = '';
 
         if(text != ""){
             let ul = document.querySelector("#list");
@@ -41,7 +41,6 @@ window.addEventListener("click", (e)=>{
 window.addEventListener('keyup', (e)=>{
     //chacks if the key presed inside the search bar
     if(e.target.id == 'search'){
-        let search = document.querySelector("#search");
         const list = document.getElementsByClassName('li');
         let arr = Array.from(list);
         arr.forEach((li)=>{
@@ -51,5 +50,41 @@ window.addEventListener('keyup', (e)=>{
                 li.style.display = 'block';
             }
         });
+    }
+});
+
+
+//this event listen to the keyboard to see if enter was pressed 
+//if enter was pressed and input bar is not empty add the mission to the list
+window.addEventListener('keypress', (e)=>{
+    const text = document.querySelector("#addtext").value;
+    if(e.code == 'Enter' && text != ''){
+
+        let search = document.querySelector("#search");
+
+        //clean the search bar before add a new item to list
+        search.value = '';
+
+        if(text != ""){
+            let ul = document.querySelector("#list");
+    
+            let li = document.createElement("li");
+            let span = document.createElement("span");
+            let btn = document.createElement("button");
+
+            span.className = "text";
+            span.textContent = text;
+
+            btn.id = "delete";
+            btn.textContent = "Delete";
+
+            li.className = "li";
+    
+            li.appendChild(span);
+            li.appendChild(btn);
+            ul.appendChild(li);
+
+            document.querySelector("#addtext").value = "";
+        }
     }
 });
