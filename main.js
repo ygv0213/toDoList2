@@ -1,3 +1,22 @@
+function handleLongWords(text){
+    let words = Array.from(text.split(" "));
+    words.forEach((w, i)=>{
+        let word = '';
+        if(w.length > 20){
+            for(let i=0;i<w.length;i++){
+                if(i % 10 == 0 && i != 0){
+                    word += " - ";
+                }
+                word += w[i];
+            }
+            words[i] = word;
+        }
+        
+    });
+    text = words.join(' ');
+    return text;
+}
+
 window.addEventListener('load', (e)=>{
 
     window.addEventListener("click", (e)=>{
@@ -7,22 +26,8 @@ window.addEventListener('load', (e)=>{
             let text = document.querySelector("#addtext").value;
             
             //chack if word is longer then 20 letters if yes do speration after the 10 letter
-            let words = Array.from(text.split(" "));
-            words.forEach((w, i)=>{
-                let word = '';
-                if(w.length > 20){
-                    for(let i=0;i<w.length;i++){
-                        if(i % 10 == 0 && i != 0){
-                            word += " - ";
-                        }
-                        word += w[i];
-                    }
-                    words[i] = word;
-                }
-                
-            });
+            text = handleLongWords(text);
 
-            text = words.join(' ');
             //clean the search bar before add a new item to list
             search.value = '';
     
@@ -77,35 +82,37 @@ window.addEventListener('load', (e)=>{
     //this event listen to the keyboard to see if enter was pressed 
     //if enter was pressed and input bar is not empty add the mission to the list
     window.addEventListener('keypress', (e)=>{
-        const text = document.querySelector("#addtext").value;
-        if(e.code == 'Enter' && text != ''){
-    
-            let search = document.querySelector("#search");
-    
-            //clean the search bar before add a new item to list
-            search.value = '';
-    
-            if(text != ""){
-                let ul = document.querySelector("#list");
+        let text = document.querySelector("#addtext").value;
+        if(e.code == 'Enter' && text != ''){let search = document.querySelector("#search");
+        let text = document.querySelector("#addtext").value;
         
-                let li = document.createElement("li");
-                let span = document.createElement("span");
-                let btn = document.createElement("button");
+        //chack if word is longer then 20 letters if yes do speration after the 10 letter
+        text = handleLongWords(text);
+
+        //clean the search bar before add a new item to list
+        search.value = '';
+
+        if(text != ""){
+            let ul = document.querySelector("#list");
     
-                span.className = "text";
-                span.textContent = text;
+            let li = document.createElement("li");
+            let span = document.createElement("span");
+            let btn = document.createElement("button");
+
+            span.className = "text";
+            span.textContent = text;
+
+            btn.id = "delete";
+            btn.textContent = "Delete";
+
+            li.className = "li";
     
-                btn.id = "delete";
-                btn.textContent = "Delete";
-    
-                li.className = "li";
-        
-                li.appendChild(span);
-                li.appendChild(btn);
-                ul.appendChild(li);
-    
-                document.querySelector("#addtext").value = "";
-            }
+            li.appendChild(span);
+            li.appendChild(btn);
+            ul.appendChild(li);
+
+            document.querySelector("#addtext").value = "";
+        }
         }
     });
 });
